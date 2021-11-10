@@ -6,6 +6,8 @@
 
 用 browser 打開就能看到 render 後之 markdown 文件
 
+[Demo 請參考這邊](https://jchou24.github.io/Demos/MdDoc/demo.html)
+
 ** ***Note*** **
 
 建議使用此文件時，避免將文件內容寫得過於龐大
@@ -30,7 +32,7 @@
 
 4. 詳細的設定請參考 `Usage`
 
-5. 實際使用範例請參考 `/md-doc/public/demo.html`
+5. 實際使用範例請參考 `/md-doc/demo/demo.html`
 
 ```html:line='7,10,15,16,17'
 <!DOCTYPE html>
@@ -39,7 +41,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="stylesheet" href="../dist/md-doc.css">
+        <link rel="stylesheet" href="./dist/md-doc.css">
     </head>
     <body>
         <section class="article">
@@ -49,7 +51,7 @@ Write Your Markdown Here
         </section>
         <div id="app"></div>
         <script src="./js/vue.min.js"></script>
-        <script src="../dist/md-doc.umd.min.js"></script>
+        <script src="./dist/md-doc.umd.min.js"></script>
     </body>
 </html>
 ```
@@ -78,7 +80,7 @@ Write Your Markdown Here
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="stylesheet" href="../dist/md-doc.css">
+        <link rel="stylesheet" href="./dist/md-doc.css">
     </head>
     <body>
         <section class="article">
@@ -98,7 +100,7 @@ Write Your Markdown Here
         </section>
         <div id="app"></div>
         <script src="./js/vue.min.js"></script>
-        <script src="../dist/md-doc.umd.min.js"></script>
+        <script src="./dist/md-doc.umd.min.js"></script>
     </body>
 </html>
 ```
@@ -116,7 +118,7 @@ Write Your Markdown Here
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="stylesheet" href="../dist/md-doc.css">
+        <link rel="stylesheet" href="./dist/md-doc.css">
     </head>
     <body>
         <section class="article" data-title="Article-1">
@@ -136,7 +138,7 @@ Write Your Markdown Here
         </section>
         <div id="app"></div>
         <script src="./js/vue.min.js"></script>
-        <script src="../dist/md-doc.umd.min.js"></script>
+        <script src="./dist/md-doc.umd.min.js"></script>
     </body>
 </html>
 ```
@@ -156,7 +158,7 @@ Write Your Markdown Here
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="stylesheet" href="../dist/md-doc.css">
+        <link rel="stylesheet" href="./dist/md-doc.css">
     </head>
     <body>
         <section class="article" data-title="Doc-1" data-category="AAA/BBB">
@@ -186,7 +188,7 @@ Write Your Markdown Here
         </section>
         <div id="app"></div>
         <script src="./js/vue.min.js"></script>
-        <script src="../dist/md-doc.umd.min.js"></script>
+        <script src="./dist/md-doc.umd.min.js"></script>
     </body>
 </html>
 ```
@@ -224,7 +226,7 @@ root_folder//
 
 ```html:line='4-6'
 <script src="./js/vue.min.js"></script>
-<script src="../dist/md-doc.umd.min.js"></script>
+<script src="./dist/md-doc.umd.min.js"></script>
 <script>
     window['md-doc'].default.install(window.Vue, {
         theme: 'default', // 'default', 'blue', 'green'
