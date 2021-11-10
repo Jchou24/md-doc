@@ -1,0 +1,79 @@
+<template>
+    <transition-group :tag="tag"
+        appear
+        v-on:before-enter="beforeEnter"
+        v-on:enter="enter"
+        >
+        <slot></slot>
+    </transition-group>
+</template>
+
+<script>
+    // require velocity-animate
+    // add data-index on element for "ripple"
+    export default {
+        name: "RippleTransitionFlip",
+        props:{
+            isFirstActive:{
+                type: Boolean,
+                default: false
+            },
+            tag:{
+                type: String,
+            },
+            setNumber:{
+                type: Number,
+                default: 20,
+            },
+        },
+        methods:{
+            beforeEnter(el) {
+                el.style.opacity = 0
+                if(this.isFirstActive){
+                    el.style.height = 0
+                }
+            },
+            enter(el, done) {
+                import('velocity-animate/velocity').then(Velocity => {
+                    const idx = el.dataset.index % this.setNumber
+                    const delay = idx * 150 + 300
+                    setTimeout(function() {
+                        // el.className += " animated flipInX"
+                        // el.className += " animated rotateInDownLeft"
+                        el.className += " rolldown"
+                        el.style.height = "initial"
+                        Velocity.default(
+                            el,
+                            { opacity: 1 },
+                            { complete: done }
+                        )
+                    }, delay)
+                })
+            }
+        }
+    }
+</script>
+
+<style lang="scss">
+    @keyframes rolldown {
+        0% {
+        visibility: visible;
+        transform: rotateX(180deg) perspective(500px);
+        }
+        70% {
+        visibility: visible;
+        transform: rotateX(-20deg);
+        }
+        100% {
+        visibility: visible;
+        transform: rotateX(0deg);
+        }
+    }
+    
+    .rolldown{
+        visibility: hidden;
+        animation: rolldown .7s 1;
+        transform-origin: 50% 0;
+        animation-fill-mode: forwards;
+    }
+</style>

@@ -1,0 +1,22 @@
+:root {
+    --color-default-base: #43668f;
+    --color-default-light-1: #eaeef3;
+    --gradient-bg-default: linear-gradient(135deg, #162332 0%, #43668f 30%, #6097d7 70%);
+    --gradient-bg-default-2: linear-gradient(45deg, #c3ddf7 0%, #d4e1ee 30%, #e5eaee 70%, #e5eaee 94%, #abcef1 96%);
+
+    --color-blue-base: #1976d2;
+    --color-blue-light-1: #d4e1ee;
+    --gradient-bg-blue: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(25,118,210,1) 30%, rgba(0,212,255,1) 70%);
+    --gradient-bg-blue-2: linear-gradient(45deg, #c3ddf7 0%, #d4e1ee 30%, #e5eaee 70%, #e5eaee 94%, #abcef1 96%);
+
+    --color-green-base: #33857f;
+    --color-green-light-1: #e5edf1;
+    --gradient-bg-green: linear-gradient(135deg, #0d2422 0%, #33857f 30%, #71d3ca 70%);
+    --gradient-bg-green-2: linear-gradient(45deg, #caf0f0 0%, #d4eeea 30%, #e5eeee 70%, #e5eeee 94%, #abe3f1 96%);
+   
+    --v-primary-base: var(--color-default-base);
+    --quote-highlight-bg: var(--color-default-light-1);
+    --quote-bg: var(--gradient-bg-default-2);
+    --tr-row-bg: var(--color-default-light-1);
+    --gradient-bg: var(--gradient-bg-default);
+}

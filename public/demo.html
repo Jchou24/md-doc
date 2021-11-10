@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="../dist/md-doc.css">
+    </head>
+    <body>
+        <section class="article" data-title="My Document">
+
+# My Markdown Article 1
+
+Hello World!
+
+# Readme
+
+關於此文件的使用請參考右上角的 Readme
+
+# Markdown Example
+
+關於 MD Document 能使用的 Markdown 語法請參考 Example
+
+        </section>
+        <section class="article" data-title="Doc-2" data-category="AAA/BBB">
+
+# My Markdown Article 2
+
+        </section>
+        <section class="article" data-title="Doc-3" data-category="AAA/CCC">
+
+# My Markdown Article 3
+
+        </section>
+        <section class="article" data-title="Doc-4" data-category="BBB">
+
+# My Markdown Article 4
+
+        </section>
+        <section class="article" data-title="Doc-5" data-category="BBB">
+
+# My Markdown Article 5
+
+        </section>
+        <div id="app"></div>
+        <script src="./js/vue.min.js"></script>
+        <script src="../dist/md-doc.umd.min.js"></script>
+        <script>
+          window['md-doc'].default.install(window.Vue, {
+            // theme: 'default', // 'default', 'blue', 'green'
+            theme: 'blue', // 'default', 'blue', 'green'
+            // theme: 'green', // 'default', 'blue', 'green'
+          })
+        </script>
+    </body>
+</html>

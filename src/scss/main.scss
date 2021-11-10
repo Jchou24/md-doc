@@ -1,0 +1,63 @@
+body{
+	background: whitesmoke;
+}
+
+.gradient-bg{
+	background: var(--gradient-bg);
+}
+
+.markdown-body div.md-title{
+	border-bottom: 3px solid #dfe2e5;
+	margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+
+	margin: 0.67em 0;
+	padding-bottom: 0.3em;
+	font-size: 2em;
+}
+
+.markdown-body {
+	box-sizing: border-box;
+}
+
+.markdown-body table tr {
+	background-color: white;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: var(--tr-row-bg);
+}
+
+.markdown-body h1{
+	border-bottom: 3px solid #dfe2e5;
+}
+
+.markdown-body h2{
+	border-bottom: 2px solid #eaecef;
+}
+
+.markdown-body mark {
+    background-color: #ffe459;
+    border-radius: 5px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+pre{
+	position: relative;
+}
+
+.markdown-body pre:not([class*="language-"]){
+	background: var(--quote-bg) !important;
+}
+
+.markdown-body pre code,
+.markdown-body pre code:not([class*="language-"]){
+	background: unset !important;
+}
+
+.markdown-body code:not([class*="language-"]){
+	background: var(--quote-highlight-bg) !important;
+}
