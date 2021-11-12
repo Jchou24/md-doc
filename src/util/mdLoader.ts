@@ -9,6 +9,7 @@ const LoadMd = () => {
             title: element.getAttribute("data-title") || `Doc-${idx+1}`,
             category: (element.getAttribute("data-category") || "").split("/"),
         })
+        element.style.display = "none";
     });
 
     if (contents.length === 0) {

@@ -53,7 +53,7 @@
                 breaks:       false,        // Convert '\n' in paragraphs into <br>
                 langPrefix:   'language-',  // CSS language prefix for fenced blocks. Can be
                                             // useful for external highlighters.
-                linkify:      false,        // Autoconvert URL-like text to links
+                linkify:      true,        // Autoconvert URL-like text to links
 
                 // Enable some language-neutral replacement + quotes beautification
                 // For the full list of replacements, see https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js
@@ -136,25 +136,23 @@
             let preScrollbars = [] as Array<PerfectScrollbar>;
             // ==================================================================================
             // Handle Perfect scrollbar
+
+            const DestroyScrollbarss = () => preScrollbars.forEach( x => x.destroy() )
             const SetScrollbar = () => {
                 // console.log("SetScrollbar")
-                preScrollbars.forEach( x => x.destroy() )
-                preScrollbars = []          
-                document.querySelectorAll('pre').forEach(function (element) {
-                // document.querySelectorAll('pre[class*="language-"]').forEach(function (element) {
-                    preScrollbars.push(new PerfectScrollbar(element))
-                })
+                DestroyScrollbarss()
+                preScrollbars = []
+                for(let selector of ['pre', 'table']){
+                    document.querySelectorAll(selector).forEach(function (element) {
+                    // document.querySelectorAll('pre[class*="language-"]').forEach(function (element) {
+                        preScrollbars.push(new PerfectScrollbar(element))
+                    })
+                }
             }
 
             const UpdatepreScrollbarss = () => {
                 preScrollbars.forEach(function (element) {
                     element.update()
-                })
-            }
-
-            const DestroyScrollbarss = () => {
-                preScrollbars.forEach(function (element) {
-                    element.destroy()
                 })
             }
             // ==================================================================================
@@ -163,7 +161,8 @@
             }
 
             const Transform = (md: string) => {
-                // const html = converter.makeHtml(md);
+                md = md.replaceAll("&gt;", ">")
+                md = md.replaceAll("&lt;", "<")
                 const html = converter.render(md);
                 contentRef.value = html
             }
@@ -209,6 +208,8 @@
                 AddDataLine()
                 Prism.highlightAll(false, UpdatePrimsm)
                 Prism.highlightAll(false, UpdatePrimsm) // force prism to upload code line highlight
+                // ==================================================================================
+                SetScrollbar()
                 // ==================================================================================
                 emit("rendered")
             })

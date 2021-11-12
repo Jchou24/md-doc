@@ -30,6 +30,17 @@ body{
 	background-color: var(--tr-row-bg);
 }
 
+.markdown-body table th,
+.markdown-body table td{
+	white-space: nowrap;
+}
+
+.markdown-body table th{
+	position: sticky;
+    left: 0;
+	background-color: var(--tr-row-bg);
+}
+
 .markdown-body h1{
 	border-bottom: 3px solid #dfe2e5;
 }
@@ -45,7 +56,8 @@ body{
 	padding-right: 4px;
 }
 
-pre{
+.markdown-body pre,
+.markdown-body table{
 	position: relative;
 }
 

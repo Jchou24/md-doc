@@ -11,7 +11,6 @@
     import { defineComponent, onMounted, ref, watch } from '@vue/composition-api'
 
     import SimpleTransition from '../util/components/SimpleTransition.vue'
-    // import PagePreviewScrollbar from './pagePreviewScrollbar/PagePreviewScrollbar.vue'
 
     import $ from 'jquery'
     import { useWindowSize } from 'vue-use-web';
@@ -21,7 +20,6 @@
         name: 'PageScrollbar',
         components:{
             SimpleTransition,
-            // PagePreviewScrollbar,
         },
         props:{
             isActive:{
