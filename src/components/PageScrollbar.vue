@@ -3,12 +3,12 @@
         enterAnimation="animate__fadeInRight"
         leaveAnimation="animate__fadeOutRight"
         >
-        <PagePreviewScrollbar :isShowCloseButton="false" :isAutoOpacity="false"  :targetSelector="targetSelector" v-if="isActive && isShowPreviewScrollbar" ref="PagePreviewScrollbar" />
+        <PagePreviewScrollbar :isShowCloseButton="false" :isAutoOpacity="false"  :targetSelector="targetSelector" v-if="isActivePageScrollbar" ref="PagePreviewScrollbar" />
     </SimpleTransition>
 </template>
 
 <script lang="ts">
-    import { defineComponent, onMounted, ref, watch } from '@vue/composition-api'
+    import { computed, defineComponent, onMounted, ref, watch } from '@vue/composition-api'
 
     import SimpleTransition from '../util/components/SimpleTransition.vue'
 
@@ -56,9 +56,18 @@
 
             const Reset = throttle(Init, 100)
             onMounted(Reset)
+            // ==================================================================================
+            const isActivePageScrollbar = computed( () => props.isActive && isShowPreviewScrollbar.value )
+
+            watch(isActivePageScrollbar, () => {
+                isActivePageScrollbar.value ?
+                    document.documentElement.classList.add("active-page-scrollbar") :
+                    document.documentElement.classList.remove("active-page-scrollbar")
+            })
 
             return {
                 isShowPreviewScrollbar,
+                isActivePageScrollbar,
                 Reset,
             }
         }        

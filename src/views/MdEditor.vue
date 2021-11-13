@@ -64,6 +64,7 @@
 
             textarea{
                 -webkit-overflow-scrolling: touch;
+                cursor: auto;
     
                 &::-webkit-scrollbar
                 {

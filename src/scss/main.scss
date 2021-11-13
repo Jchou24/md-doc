@@ -22,6 +22,27 @@ body{
 	box-sizing: border-box;
 }
 
+// ==================================================================================
+.markdown-body h1{
+	border-bottom: 3px solid #dfe2e5;
+}
+
+.markdown-body h2{
+	border-bottom: 2px solid #eaecef;
+}
+
+.markdown-body mark {
+    background-color: #ffe459;
+    border-radius: 5px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+// ==================================================================================
+// table
+.markdown-body table{
+	position: relative;
+}
+
 .markdown-body table tr {
 	background-color: white;
 }
@@ -40,24 +61,8 @@ body{
     left: 0;
 	background-color: var(--tr-row-bg);
 }
-
-.markdown-body h1{
-	border-bottom: 3px solid #dfe2e5;
-}
-
-.markdown-body h2{
-	border-bottom: 2px solid #eaecef;
-}
-
-.markdown-body mark {
-    background-color: #ffe459;
-    border-radius: 5px;
-	padding-left: 4px;
-	padding-right: 4px;
-}
-
-.markdown-body pre,
-.markdown-body table{
+// ==================================================================================
+.markdown-body pre{
 	position: relative;
 }
 
@@ -72,4 +77,83 @@ body{
 
 .markdown-body code:not([class*="language-"]){
 	background: var(--quote-highlight-bg) !important;
+}
+
+// ==================================================================================
+// line-highlight
+@mixin code-highlight(){
+	.line-highlight{
+		background: #0f5298a8;
+		border-top: unset;
+		border-bottom: unset;
+		margin-top: 14px !important;
+	}
+}
+.markdown-body{
+	@include code-highlight();
+	.code-line-highlight{
+		z-index: 2;
+		width: 3em !important;
+	}
+}
+// ==================================================================================
+.markdown-body pre[class*="language-"]{
+	border: none;
+
+	code{
+		z-index: 1;
+	}
+
+	@include code-highlight();
+
+	.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string{
+		background: unset;
+	}
+
+	.url-link{
+		text-decoration: underline;
+	}
+}
+
+.markdown-body pre[class*="language-"]::selection,
+.markdown-body pre[class*="language-"] ::selection,
+.markdown-body code[class*="language-"]::selection,
+.markdown-body code[class*="language-"] ::selection {
+	text-shadow: none;
+	// background: hsla(0, 0%, 93%, 0.15);
+	background: #afcbff57;
+}    
+// ==================================================================================
+// line-number-rows
+.markdown-body .code-line-numbers-bg{
+	background: #141414;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: calc( 100% - 15px );
+	width: 3em;
+	z-index: 1;
+	border-radius: 0.5em;
+
+	&:before{
+		content: "";
+	}
+}
+
+.markdown-body .line-numbers-rows.code-line-numbers-rows{
+	top: 16px;
+	left: 0;
+	z-index: 3;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+	span:before{
+		content: counter(linenumber);
+	}
+}
+
+.markdown-body code .line-numbers-rows{
+	margin-top: -2px;
+	&.reset-code-number > span{
+		counter-increment: unset;
+	}
 }

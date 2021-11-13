@@ -265,7 +265,13 @@
     .md-viewer .scrollbar-bg{
         width: $width-scrollbar;
     }
-
+    // ==================================================================================
+    .active-page-scrollbar{
+        .md-editor,
+        .md-example{
+            padding-right: $width-scrollbar;
+        }
+    }
     // ==================================================================================
     .Vue-Toastification__container{
         padding-top: 68px;
